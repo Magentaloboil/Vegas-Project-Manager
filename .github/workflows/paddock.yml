@@ -1,0 +1,32 @@
+name: "LILAC"
+run-name: "Cliff"
+"on":
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  pages: write
+  contents: read
+  id-token: write
+concurrency:
+  group: "JASPER-${{ github.ref_name }}"
+  cancel-in-progress: true
+jobs:
+  DAYBREAK:
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Wolfsbane.outputs.page_url }}
+    steps:
+      - name: "Saffronfield"
+        uses: actions/checkout@v7
+      - name: "tamarind"
+        uses: actions/configure-pages@v5
+      - name: "PATINA"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ github.workspace }}
+      - name: "ROWAN"
+        id: Wolfsbane
+        uses: actions/deploy-pages@v4
